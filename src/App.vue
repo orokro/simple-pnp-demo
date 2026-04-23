@@ -1,11 +1,39 @@
-<script setup></script>
+<script setup>
+import DragDemo from './components/DragDemo.vue';
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <PNPDragLayer :z-index="9999" />
+  
+  <div class="app-container">
+    <div class="split-pane">
+      <DragDemo />
+    </div>
+    <div class="split-pane">
+      <DragDemo />
+    </div>
+  </div>
 </template>
 
-<style scoped></style>
+<style>
+/* Global reset to ensure full screen no scroll */
+html, body, #app {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.app-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.split-pane {
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+}
+</style>
