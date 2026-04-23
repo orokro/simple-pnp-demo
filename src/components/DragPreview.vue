@@ -7,8 +7,19 @@
 -->
 <script setup>
 
+// vue
+import { onMounted, onUnmounted } from 'vue';
+
 // define props
-defineProps(['ctx', 'groupCtx', 'delta', 'startMouse', 'currentMouse']);
+const props = defineProps(['ctx', 'groupCtx', 'delta', 'startMouse', 'currentMouse']);
+
+onMounted(() => {
+	console.log('DragPreview mounted with ctx:', { ctx: props.ctx, groupCtx: props.groupCtx, delta: props.delta, startMouse: props.startMouse, currentMouse: props.currentMouse });
+});
+
+onUnmounted(() => {
+	console.log('DragPreview unmounted');
+});
 
 </script>
 <template>
